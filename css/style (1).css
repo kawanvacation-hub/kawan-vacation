@@ -809,44 +809,70 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+/* GRID GAMBAR */
 .vila-images {
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4px;
   height: 400px;
-  overflow: hidden;
 }
+
+/* MAIN IMAGE (besar kiri) */
 .vila-img-main {
-   width: 100%;
-  height: auto; /* ini biar natural */
-  object-fit: cover;
+  grid-row: 1 / 4;
   overflow: hidden;
   background: var(--cream-dark);
 }
-.vila-img-main img { height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-.vila-card:hover .vila-img-main img { transform: scale(1.05); }
 
+.vila-img-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 🔥 biar nggak gepeng */
+  transition: transform 0.5s ease;
+}
+
+/* THUMBNAIL */
 .vila-img-thumb {
   overflow: hidden;
   background: var(--cream-dark);
 }
-.vila-img-thumb img { height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-.vila-card:hover .vila-img-thumb img { transform: scale(1.06); }
 
+.vila-img-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 🔥 penting */
+  transition: transform 0.4s ease;
+}
+
+/* HOVER EFFECT */
+.vila-card:hover .vila-img-main img {
+  transform: scale(1.05);
+}
+
+.vila-card:hover .vila-img-thumb img {
+  transform: scale(1.06);
+}
+
+/* CONTENT */
 .vila-content {
   padding: 36px 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .vila-content .card-label { margin-bottom: 10px; }
+
 .vila-content h3 {
   font-size: 1.6rem;
   color: var(--green-dark);
   margin-bottom: 6px;
 }
+
 .vila-content .card-price { margin-bottom: 8px; }
+
 .vila-cap-tag {
   display: inline-flex;
   align-items: center;
@@ -855,8 +881,10 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
   color: var(--text-muted);
   margin-bottom: 16px;
 }
+
 .vila-content .card-desc { margin-bottom: 16px; }
 .vila-content .facility-list { margin-bottom: 24px; }
+
 
 /* ============================================
    CONTACT PAGE
